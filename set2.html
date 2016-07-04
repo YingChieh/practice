@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<body>
+
+<h2>Create Object from JSON String</h2>
+<input type = "text" id = "firstName" value="test">姓
+<input type = "text" id = "lastName" value="test">名
+<br>
+<input type = "text" name = "firstName" value="test">姓
+<input type = "text" name = "lastName" value="test">名
+<br>
+<input type = "text" class = "firstName" value="test">姓
+<input type = "text" class = "lastName" value="test">名
+
+<script>
+var text = '{"employees":[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}';
+
+obj = JSON.parse(text);
+
+$(document).ready(function(){
+   dosomething();
+});
+
+function dosomething()
+{
+   $("#firstName").val(obj.employees[1].firstName)
+   $("#lastName").val(obj.employees[1].lastName)
+
+   $("input[name='firstName']").val(obj.employees[0].firstName)
+   $("input[name='lastName']").val(obj.employees[0].lastName)
+
+   $(".firstName").val(obj.employees[2].firstName)
+   $(".lastName").val(obj.employees[2].lastName)
+   
+}
+
+</script>
+
+</body>
+</html>
+
+
