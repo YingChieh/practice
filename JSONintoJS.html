@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<body>
+
+<h2> Create JSON object in JavaScript</h2>
+
+<script>
+var employeeObject = '{"Name":"Tom","age":18,"weight":60}';
+
+
+var contact = new Object();
+contact.firstname = "Jesper";
+contact.surname = "Aaberg";
+contact.phone = ["555-0100", "555-0120"];
+var contact2 = new Object();
+contact2.firstname = "Tom";
+contact2.surname = "White";
+contact2.phone = ["333-9999", "111-0000"];
+
+
+
+var memberfilter = new Array();
+memberfilter[0] = "firstname";
+memberfilter[1] = "surname";
+memberfilter[2] = "phone";
+arrayList = [];
+arrayList.push(contact);
+arrayList.push(contact2);
+var jsonText = JSON.stringify(arrayList, memberfilter, "\t");
+document.write(jsonText);
+
+</script>
+
+</body>
+</html>
