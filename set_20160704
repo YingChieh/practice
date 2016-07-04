@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<body>
+
+<h2>Create Object from JSON String</h2>
+<input type = "text" id = "firstName" value="test">姓
+<input type = "text" id = "lastName" value="test">名
+
+
+<p id="temp"></p>
+<input type = "text" id = "temp2" value="test">
+<p id="temp3"></p>
+
+
+<script>
+var text = '{"employees":[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}';
+
+obj = JSON.parse(text);
+
+/*for(i = 0; i < obj.employees.length; i++)
+  document.getElementById("demo").innerHTML += " " +
+  obj.employees[i].firstName + " " + obj.employees[i].lastName;*/
+
+$(document).ready(function(){
+        dosomething();
+});
+
+function dosomething()
+{
+   //alert($("#lastName").attr("type","textarea"));
+   $("#firstName").val(obj.employees[1].firstName)
+   $("#lastName").val(obj.employees[1].lastName)
+
+   $("#lastName").attr("id","area")
+
+   $("#temp").text("1")
+   $("#temp2").val("2")
+   $("#temp2").attr("type", "new")
+   $("#temp3").html("<b>Hello world!</b>")
+
+
+}
+
+
+</script>
+
+</body>
+</html>
+
+
