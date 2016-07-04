@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<body>
+
+<h2>Create Object from JSON String</h2>
+<select id = "firstName"></select>
+<select id = "lastName"></select>
+
+<p id=print ></p>
+
+<script>
+var text = '{"employees":[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}';
+
+obj = JSON.parse(text);
+
+$(document).ready(function(){
+        dosomething();
+});
+
+//Select改變時的事件
+$("#firstName").change(function(){
+  $("option:selected",this).each(function(){
+        select();
+  });
+});
+$("#lastName").change(function(){
+  $("option:selected",this).each(function(){
+        select();
+  });
+});
+
+function dosomething()
+{
+//增加項目
+   for(i=0;i<obj.employees.length;i++){
+    $("#firstName").append($("<option></option>").text(obj.employees[i].firstName));
+    $("#lastName").append($("<option></option>").text(obj.employees[i].lastName));
+   }
+}
+
+function select()
+{
+   document.getElementById("print").innerHTML =
+$("#firstName").find(":selected").text() + " " + $("#lastName").find(":selected").text();
+   
+}
+
+</script>
+
+</body>
+</html>
