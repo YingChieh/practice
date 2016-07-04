@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<body>
+
+<h2> Create JSON object in JavaScript</h2>
+
+<script>
+function Employee(name, age, weight) {
+    this.Name = name;
+    this.age = age;
+    this.weight = weight;
+}
+
+var employeeObject1 = new Employee('Jay', 25, 58);
+
+var employeeObject2 = new Employee('Raj', 27, 64);
+
+var employeeObject3 = new Employee('Roy', 21, 55);
+
+arrayList = [];
+
+arrayList.push(employeeObject1);
+arrayList.push(employeeObject2);
+arrayList.push(employeeObject3);
+document.write(JSON.stringify(arrayList));
+</script>
+
+</body>
+</html>
