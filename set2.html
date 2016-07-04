@@ -28,9 +28,15 @@ $(document).ready(function(){
 
 function dosomething()
 {
+   /*jQuery 有三個最重要的選擇器，如下：
+   $(“element”)：選出所有該 element 的節點, 例如：$(“p”) ：選出所有 <p> </p>的節點
+   $(“#divId”)：選出所有 <div id=”divId”></div> 的節點
+   $(“.divClass”)：選出所有 <div class=”divClass”></div> 的節點*/
+   
    $("#firstName").val(obj.employees[1].firstName)
    $("#lastName").val(obj.employees[1].lastName)
 
+   //選擇所有的name屬性等於’firstName’的input元素
    $("input[name='firstName']").val(obj.employees[0].firstName)
    $("input[name='lastName']").val(obj.employees[0].lastName)
 
@@ -43,5 +49,3 @@ function dosomething()
 
 </body>
 </html>
-
-
