@@ -18,44 +18,47 @@
 
 
 <script>
-var text = '{"employees":[' +
-'{"firstName":"John","lastName":"Doe" },' +
-'{"firstName":"Anna","lastName":"Smith" },' +
-'{"firstName":"Peter","lastName":"Jones" }]}';
 
-obj = JSON.parse(text);
 
 //取得（單選）選項的方法 ( radio )
-f_name=$('input:radio:checked[name="firstName"]').val();
-l_name=$('input:radio:checked[name="lastName"]').val();
 
 //alert(f_name);
-
 $(document).ready(function(){
    todo();
 });
-
-var Eobj=new Object();
-Eobj = {"firstName":f_name,"lastName":l_name};
 
 
 
 function todo()
 {
-arrayList = [];
-arrayList.push(obj.employees);
+
+var text = '{"employees":[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}';
+obj = JSON.parse(text);
+
+arrayList = obj.employees;
+
+f_name=$('input:radio:checked[name="firstName"]').val();
+l_name=$('input:radio:checked[name="lastName"]').val();
+
+var Eobj=new Object();
+Eobj = {"firstName":f_name,"lastName":l_name};
 arrayList.push(Eobj);
 
-var jsonText = JSON.stringify(arrayList);
+Eobj=new Object();
+Eobj.firstName = "Huang";
+Eobj.lastName= "Hon";
+arrayList.push(Eobj);
+
+var obj2=new Object();
+obj2.employees = arrayList; /**/
+var jsonText = JSON.stringify(obj2);
 document.write(jsonText);
 
-//text = '{"employees":jsonText}';
-//document.write(text);
-
 }
-
 </script>
 
 </body>
 </html>
-
